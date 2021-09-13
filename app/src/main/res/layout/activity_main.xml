@@ -235,6 +235,21 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         >
+        <!-- 数字0 -->
+        <Button android:id="@+id/jinzhi"
+            android:text="进制转换"
+            android:layout_width="204sp"
+            android:layout_height="wrap_content" />
+        <!-- 小数点 -->
+        <Button android:id="@+id/danwei"
+            android:text="单位换算"
+            android:layout_width="204sp"
+            android:layout_height="wrap_content" />
+    </TableRow>
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
         <!-- 用于提示，告诉用户如何使用计算器的一些功能等 -->
         <TextView android:id="@+id/T"
             android:layout_width="45sp"

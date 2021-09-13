@@ -3,6 +3,7 @@ package com.example.calculator;
 //import java.text.NumberFormat;
 import java.text.DecimalFormat;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.*;
 import android.util.Log;
@@ -27,7 +28,8 @@ public class MainActivity extends Activity
             sin, cos, tan, log, ln,               //函数
             sqrt, square, factorial, bksp,  	  //根号  平方  阶乘   退格
             left, right, dot, exit, drg,          //（     ）  .  退出     角度弧度控制键
-            mc, c;                                // mem清屏键    input清屏键
+            mc, c,                                // mem清屏键    input清屏键
+            jinzhi, danwei;
     //保存原来的算式样子，为了输出时好看，因计算时，算式样子被改变
     public String str_old;
     //变换样子后的式子
@@ -83,6 +85,8 @@ public class MainActivity extends Activity
         drg = (Button)findViewById(R.id.drg);
         mc = (Button)findViewById(R.id.mc);
         c = (Button)findViewById(R.id.c);
+        jinzhi = findViewById(R.id.jinzhi);
+        danwei = findViewById(R.id.danwei);
         //为数字按键绑定监听器
         for(int i = 0; i < 10; ++i) {
             btn[i].setOnClickListener(actionPerformed);
@@ -109,6 +113,23 @@ public class MainActivity extends Activity
         drg.setOnClickListener(actionPerformed);
         mc.setOnClickListener(actionPerformed);
         c.setOnClickListener(actionPerformed);
+        jinzhi.setOnClickListener(actionPerformed);
+        danwei.setOnClickListener(actionPerformed);
+
+        jinzhi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, DecimalConversion.class);
+                startActivity(intent);
+            }
+        });
+        danwei.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, UnitConversion.class);
+                startActivity(intent);
+            }
+        });
     }
 
     /*
